@@ -1,0 +1,173 @@
+
+version: 2
+
+models:
+    - name: fct_order_details_with_degen_dim
+      description: "Essa tabela é necessaria para fazer a integração com o google data studio (permite apenas um join), 
+      por isso, optou-se por utilizar dimensões degeneradas. Desta forma, esta tabela simboliza a junção de todas as 
+      dimensões estipuladas dentro da metodologia de DW, com a exceção de, address_id"
+      columns:
+          - name: salesorderid
+            description: "O id associado ao pedido"
+            tests:
+                - not_null
+          
+          - name: salesorderdetailid
+            description: "O id associado aos itens do pedido"
+            tests:
+                - not_null
+                - unique
+
+          - name: unitprice
+            description: "O id associado ao pedido"
+            tests:
+                - not_null
+
+          - name: orderqty
+            description: "A quantidade associada ao produto"
+            tests:
+                - not_null
+  
+          - name: product_subtotal
+            description: "O valor faturado por determinado produto"
+            tests:
+                - not_null
+
+          - name: productid
+            description: "O id do produto"
+            tests:
+                - not_null
+  
+          - name: address_id
+            description: "O id do endereço associado ao pedido"
+            tests:
+                - not_null
+
+
+    - name: fct_order_details
+      description: "Essa tabela segue a metodologia do DW. Pensada pra fazer toda a integração com as dimensões desejadas"
+      columns:
+          - name: salesorderid
+            description: "O id associado ao pedido"
+            tests:
+                - not_null
+          
+          - name: salesorderdetailid
+            description: "O id associado aos itens do pedido"
+            tests:
+                - not_null
+                - unique
+
+          - name: unitprice
+            description: "O id associado ao pedido"
+            tests:
+                - not_null
+
+          - name: orderqty
+            description: "A quantidade associada ao produto"
+            tests:
+                - not_null
+  
+          - name: product_subtotal
+            description: "O valor faturado por determinado produto"
+            tests:
+                - not_null
+
+          - name: productid
+            description: "O id do produto"
+            tests:
+                - not_null
+
+          - name: address_id
+            description: "O id do endereço associado ao pedido"
+            tests:
+                - not_null
+
+    - name: fct_sales_reason
+      description: "Essa tabela segue a metodologia do DW. Pensada pra fazer toda a integração com as dimensões desejadas"
+      columns:
+          - name: salesorderid
+            description: "O id associado ao pedido"
+            tests:
+                - not_null
+          
+          - name: salesorderdetailid
+            description: "O id associado aos itens do pedido"
+            tests:
+                - not_null
+
+          - name: unitprice
+            description: "O id associado ao pedido"
+            tests:
+                - not_null
+
+          - name: orderqty
+            description: "A quantidade associada ao produto"
+            tests:
+                - not_null
+  
+          - name: product_subtotal
+            description: "O valor faturado por determinado produto"
+            tests:
+                - not_null
+
+          - name: productid
+            description: "O id do produto"
+            tests:
+                - not_null
+
+          - name: address_id
+            description: "O id do endereço associado ao pedido"
+            tests:
+                - not_null
+
+          - name: card_type
+            description: "O id do endereço associado ao pedido"
+            tests:
+                - not_null
+
+    - name: dim_person
+      description: "Essa tabela segue a metodologia do DW. Pensada pra fazer toda a integração com as dimensões desejadas"
+      columns:
+          - name: businessentityid
+            description: "O id associado à pessoa"
+            tests:
+                - not_null
+                - unique
+
+          - name: type_of_contact
+            description: "Categoria dentro da tabela pessoas, classificando como cliente ou outros (empregados...)"
+            tests:
+                - not_null
+
+    - name: dim_products
+      description: "Essa tabela segue a metodologia do DW. Pensada pra fazer toda a integração com as dimensões desejadas"
+      columns:
+          - name: productid
+            description: "O id associado ao produto"
+            tests:
+                - not_null
+                - unique
+
+          - name: product_name
+            description: "O nome do produto"
+            tests:
+                - not_null
+
+    - name: dim_address
+      description: "Tabela de endereços e localidades"
+      columns:
+          - name: addressid
+            description: "O id associado ao produto"
+            tests:
+                - not_null
+                - unique
+
+    - name: dim_creditcard
+      description: "Tabela de cartão de crédito"
+      columns:
+          - name: creditcardid
+            description: "O id associado ao cartão"
+            tests:
+                - not_null
+                - unique
