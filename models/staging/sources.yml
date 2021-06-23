@@ -5,45 +5,42 @@ sources:
     description: This is a replica of the Postgres database used by our client
     tables:
       - name: salesreason
-        description: This table contains information about the order
+        description: 'Essa tabela contem informações associadas ao motivo do pedido'
 
       - name: salesorderdetail
-        description: 'Individual products associated with a specific sales order. See SalesOrderHeader.'
+        description: 'Esta tabela contém as informações individuais dos produtos em cada pedido.'
 
       - name: personcreditcard
-        description: 'Cross-reference table mapping people to their credit card information in the CreditCard table.'
+        description: 'Tabela que referencia determinada pessoa com determinado cartão.'
 
       - name: salesorderheadersalesreason
-        description: 'Cross-reference table mapping sales orders to sales reason codes.'
+        description: 'Faz a relação entre a salesorderheader com salesreason'
 
       - name: customer
-        description: 'Current customer information. Also see the Person and Store tables.'
+        description: 'Tabela de clientes.'
 
       - name: creditcard
-        description: 'Customer credit card information.'
+        description: 'Tabela de informações de cartão de crédito'
 
       - name: salesorderheader
-        description: 'General sales order information.'
-
-      - name: currencyrate
-        description: 'Currency exchange rates.'
+        description: 'Informações de venda POR PEDIDO'
 
       - name: address
-        description: 'Table with the address information'
+        description: 'Tabela com os endereços e códigos'
 
       - name: stateprovince
-        description: 'Table with the stateprovince information'
+        description: 'Tabela com os estados'
 
       - name: countryregion
-        description: 'Table with the country information'
+        description: 'Tabela com os países e seus códigos'
 
       - name: person
-        description: 'Table with the person information'
+        description: 'Tabela com informações de pessoas'
 
       - name: product
-        description: 'Table with the products information'
+        description: 'Tabela com informação de produto'
 
       - name: businessentitycontact
-        description: 'Table with the businessentity information'
+        description: 'Tabela não utilizada'
 
     
